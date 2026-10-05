@@ -89,12 +89,14 @@ export const norm = (s: string) =>
 
 function lev(a: string, b: string) {
   if (Math.abs(a.length - b.length) > 2) return 9;
-  const dp = Array.from({ length: a.length + 1 }, (_, i) => [i, ...Array(b.length).fill(0)]);
-  for (let j = 1; j <= b.length; j++) dp[0][j] = j;
-  for (let i = 1; i <= a.length; i++)
+  let prev = Array.from({ length: b.length + 1 }, (_, j) => j);
+  for (let i = 1; i <= a.length; i++) {
+    const cur = [i];
     for (let j = 1; j <= b.length; j++)
-      dp[i][j] = Math.min(dp[i - 1][j] + 1, dp[i][j - 1] + 1, dp[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
-  return dp[a.length][b.length];
+      cur[j] = Math.min((prev[j] ?? 0) + 1, (cur[j - 1] ?? 0) + 1, (prev[j - 1] ?? 0) + (a[i - 1] === b[j - 1] ? 0 : 1));
+    prev = cur;
+  }
+  return prev[b.length] ?? 9;
 }
 const fuzzyEq = (a: string, b: string) => a === b || (a.length >= 4 && b.length >= 4 && lev(a, b) <= (a.length > 6 ? 2 : 1));
 
