@@ -43,6 +43,11 @@ The storefront runs at `http://localhost:5173`; the API runs at
 `http://localhost:5000`. The seed creates 14 bilingual categories, 9 popular
 brands, phone models, sample repair parts, and example customer reviews.
 
+If PostgreSQL is unavailable, run `npm run dev:demo` to use a temporary,
+read-only sample catalog. Product and search pages work in this mode, while
+orders and administration return HTTP 503. The normal `npm run dev` command
+continues to use PostgreSQL.
+
 ## Build and deployment
 
 `npm run build` type-checks and creates the standalone static SPA in `dist/`.

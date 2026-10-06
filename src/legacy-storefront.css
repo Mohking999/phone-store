@@ -510,6 +510,12 @@ html:has(.legacy-storefront) {
   min-height: 230px;
   padding: 19px;
 }
+.legacy-storefront .category-photo-card {
+  grid-column: span 2;
+  min-height: 158px;
+  padding: 19px;
+  justify-content: flex-end;
+}
 .legacy-storefront .category-tone-screen {
   background:
     radial-gradient(ellipse at 72% 28%, #fff7, transparent 30%),
@@ -1023,13 +1029,6 @@ html:has(.legacy-storefront) {
   content: "";
   pointer-events: none;
 }
-.legacy-storefront .atelier-art > img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
 .legacy-storefront .atelier-art > span {
   position: absolute;
   z-index: 2;
@@ -1351,6 +1350,9 @@ html:has(.legacy-storefront) {
     width: 30%;
   }
   .legacy-storefront .category-card:has(.category-icon) {
+    grid-column: span 3;
+  }
+  .legacy-storefront .category-photo-card {
     grid-column: span 3;
   }
   .legacy-storefront .model-category {
@@ -1704,6 +1706,11 @@ html:has(.legacy-storefront) {
   .legacy-storefront .category-card:has(.category-icon) {
     grid-column: span 1;
     min-height: 126px;
+  }
+  .legacy-storefront .category-photo-card {
+    grid-column: span 1;
+    min-height: 126px;
+    padding: 13px;
   }
   .legacy-storefront .category-icon {
     margin-bottom: 23px;
@@ -2167,10 +2174,6 @@ html:has(.legacy-storefront) {
 .legacy-storefront .atelier-art {
   background: #dfe7f5;
 }
-.legacy-storefront .atelier-art > img {
-  transform: rotate(1.4deg) scale(1.04);
-}
-
 @media (max-width: 900px) {
   .legacy-storefront .hero-inner {
     gap: 28px;

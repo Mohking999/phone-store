@@ -364,8 +364,7 @@ $renderProducts = static function (array $products) use ($whatsapp): void {
 
     <section class="atelier-section section-shell" id="atelier" aria-labelledby="atelier-title">
         <div class="content-width atelier-layout">
-            <figure class="atelier-art">
-                <img src="assets/products/04 LE GESTE JUSTE.webp" alt="Technicien réparant un smartphone sur un établi" width="1536" height="1024" loading="lazy" decoding="async">
+            <figure class="atelier-art" role="img" aria-label="Technicien réparant un smartphone sur un établi" style="background-image: url('assets/products/04%20LE%20GESTE%20JUSTE.webp'); background-position: center; background-size: cover">
                 <span>06 / ATELIER</span>
                 <figcaption class="sr-only">Technicien réparant un smartphone sur un établi</figcaption>
             </figure>

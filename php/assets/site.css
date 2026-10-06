@@ -195,7 +195,6 @@ h1, h2, h3, p, figure { margin-top: 0; }
 .atelier-layout { display: grid; grid-template-columns: minmax(0, 486px) minmax(0, 1fr); align-items: center; gap: clamp(54px, 5.7vw, 110px); }
 .atelier-art { position: relative; min-height: 482px; margin: 0 40px; overflow: hidden; border: 1px solid #dbe3ee; border-radius: 14px; background: radial-gradient(ellipse at 35% 30%, #c9d8ff78, transparent 34%), radial-gradient(ellipse at 70% 75%, #cff1e468, transparent 38%), linear-gradient(150deg, #e9edf5, #eef2f9 55%, #e4ebf1); transform: rotate(-1.4deg); }
 .atelier-art::before { position: absolute; z-index: 1; inset: 22px; border: 1px solid #ffffff9e; border-radius: 9px; content: ""; pointer-events: none; }
-.atelier-art > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .atelier-art > span { position: absolute; z-index: 2; top: 20px; left: 20px; padding: 6px 9px; border: 1px solid #ffffffbd; border-radius: 6px; background: #f4f6f9b3; font: 400 9px/1.5 var(--mono); letter-spacing: .1em; }
 .atelier-copy { min-width: 0; }
 .atelier-copy h2 { max-width: 600px; margin-top: 8px; }
@@ -464,8 +463,6 @@ h1, h2, h3, p, figure { margin-top: 0; }
 .hero-figure .popular-searches a { padding: 5px 8px; border-radius: 999px; background: #eef3ff; font-size: 9px; }
 .hero-figure .search-note { margin-top: 8px; font-size: 9px; }
 .atelier-art { background: #dfe7f5; }
-.atelier-art > img { transform: rotate(1.4deg) scale(1.04); }
-
 @media (max-width: 900px) {
   .hero-inner { gap: 28px; }
   .hero-figure { width: min(100%, 650px); justify-self: center; }

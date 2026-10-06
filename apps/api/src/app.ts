@@ -2,9 +2,11 @@ import "dotenv/config";
 import cors from "cors";
 import express from "express";
 import helmet from "helmet";
+import { demoRouter } from "./demo.js";
 import { router } from "./routes.js";
 
 const app = express();
+const demoMode = process.env.CATALOG_DEMO_MODE === "true" || process.argv.includes("--demo");
 const allowedOrigins = (
   process.env.FRONTEND_ORIGIN ?? "http://localhost:5173,http://127.0.0.1:5173"
 )
@@ -46,10 +48,16 @@ app.use(
   }),
 );
 app.use(express.json({ limit: "64kb" }));
-app.get("/health", (_request, response) => response.json({ status: "ok" }));
-app.use("/api", router);
+app.get("/health", (_request, response) =>
+  response.json({ status: "ok", catalogMode: demoMode ? "sample" : "database" }),
+);
+app.use("/api", demoMode ? demoRouter : router);
 app.use("/api", (_request, response) =>
-  response.status(404).json({ error: "API endpoint not found." }),
+  response.status(demoMode ? 503 : 404).json({
+    error: demoMode
+      ? "The sample catalog is read-only. Start the API with PostgreSQL for orders and administration."
+      : "API endpoint not found.",
+  }),
 );
 app.use(
   (

@@ -8,8 +8,10 @@
   ],
   "scripts": {
     "dev": "concurrently --kill-others-on-fail \"npm:dev:web\" \"npm:dev:api\"",
+    "dev:demo": "concurrently --kill-others-on-fail \"npm:dev:web\" \"npm:dev:api-demo\"",
     "dev:web": "vite --host 0.0.0.0",
     "dev:api": "npm run dev --workspace @vision-pro/api",
+    "dev:api-demo": "npm run dev:demo --workspace @vision-pro/api",
     "build": "tsc --noEmit && vite build",
     "build:api": "npm run build --workspace @vision-pro/api",
     "preview": "vite preview --host 0.0.0.0",

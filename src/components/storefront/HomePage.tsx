@@ -21,6 +21,13 @@ import flexPhoto from "../../assets/cat-flex.jpg";
 import screenPhoto from "../../assets/cat-screen.jpg";
 import repairPhoto from "../../assets/hero.jpg";
 import heroWhatsappIcon from "../../assets/figma/hero-whatsapp.svg";
+import backCoverPhoto from "../../../pic/cache arrire.jfif";
+import buttonPhoto from "../../../pic/buttons for phone peice.jfif";
+import fingerprintPhoto from "../../../pic/finger print.jfif";
+import framePhoto from "../../../pic/frame.jfif";
+import microphonePhoto from "../../../pic/microphone.jpg";
+import simTrayPhoto from "../../../pic/tirage sim.jfif";
+import speakerPhoto from "../../../pic/haut parler.jfif";
 import { ApiErrorNotice, PageLoader, ProductGrid, SearchBar } from "./common";
 
 const heroSearchExamples = [
@@ -121,6 +128,7 @@ const categoryItems: {
     kind: "icon",
     tone: "",
     icon: Volume2,
+    image: speakerPhoto,
   },
   {
     slug: "micros",
@@ -130,6 +138,7 @@ const categoryItems: {
     kind: "icon",
     tone: "",
     icon: Mic,
+    image: microphonePhoto,
   },
   {
     slug: "boutons",
@@ -139,6 +148,7 @@ const categoryItems: {
     kind: "icon",
     tone: "",
     icon: Smartphone,
+    image: buttonPhoto,
   },
   {
     slug: "tirages-sim",
@@ -148,6 +158,7 @@ const categoryItems: {
     kind: "icon",
     tone: "",
     icon: Smartphone,
+    image: simTrayPhoto,
   },
   {
     slug: "frames",
@@ -157,6 +168,7 @@ const categoryItems: {
     kind: "icon",
     tone: "",
     icon: Package,
+    image: framePhoto,
   },
   {
     slug: "cache-arriere",
@@ -166,6 +178,7 @@ const categoryItems: {
     kind: "icon",
     tone: "",
     icon: Smartphone,
+    image: backCoverPhoto,
   },
   {
     slug: "capteur-empreinte",
@@ -175,6 +188,7 @@ const categoryItems: {
     kind: "icon",
     tone: "",
     icon: Fingerprint,
+    image: fingerprintPhoto,
   },
   {
     slug: "autres-pieces",
@@ -493,7 +507,7 @@ export function HomePage() {
             {categoryItems.map(({ slug, name, arabic, count, kind, tone, icon: Icon, image }) => (
               <Link
                 key={slug}
-                className={`category-card category-${kind}${tone ? ` category-tone-${tone}` : ""}`}
+                className={`category-card ${kind === "icon" && image ? "category-photo-card" : `category-${kind}`}${tone ? ` category-tone-${tone}` : ""}`}
                 to={`/products?category=${encodeURIComponent(slug)}`}
               >
                 {image ? (
@@ -764,15 +778,16 @@ export function HomePage() {
         aria-labelledby="atelier-title"
       >
         <div className="content-width atelier-layout">
-          <figure className="atelier-art">
-            <img
-              src={workshopPhoto}
-              alt="Technicien réparant un smartphone sur un établi"
-              width={1536}
-              height={1024}
-              loading="lazy"
-              decoding="async"
-            />
+          <figure
+            className="atelier-art"
+            role="img"
+            aria-label="Technicien réparant un smartphone sur un établi"
+            style={{
+              backgroundImage: `url("${workshopPhoto}")`,
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+            }}
+          >
             <span>06 / ATELIER</span>
             <figcaption className="sr-only">
               Technicien réparant un smartphone sur un établi
