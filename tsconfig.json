@@ -1,10 +1,15 @@
 {
   "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
+    "src/main.tsx",
+    "src/App.tsx",
+    "src/api/**/*.ts",
+    "src/store/**/*.ts",
+    "src/components/storefront/**/*.tsx",
+    "src/lib/i18n.tsx",
+    "src/test/**/*.ts",
+    "src/test/**/*.tsx",
     "vite.config.ts",
-    "vitest.config.ts",
-    "eslint.config.js"
+    "vitest.config.ts"
   ],
   "compilerOptions": {
     "target": "ES2022",
@@ -12,16 +17,13 @@
     "module": "ESNext",
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "types": ["vite/client", "vitest/globals"],
-
     "moduleResolution": "Bundler",
-    "allowImportingTsExtensions": true,
-    "verbatimModuleSyntax": false,
+    "verbatimModuleSyntax": true,
     "noEmit": true,
-
     "skipLibCheck": true,
     "strict": true,
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
     "noImplicitReturns": true,
